@@ -7,6 +7,7 @@ import babelParser from '@babel/eslint-parser';
 
 export default [
   { files: ["src/*.{js,mjs,cjs,ts}"] },
+  { ignores: ["dist", "node_modules"] },
   { languageOptions: { globals: globals.browser } },
 
   pluginJs.configs.recommended,
