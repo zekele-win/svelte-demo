@@ -1,9 +1,7 @@
-<script lang="ts">
-  let name: string = "World";
+<script>
+  let name = "world";
 </script>
 
-<div>
-  <h1 class="text-3xl font-bold underline">
-    Hello {name}!
-  </h1>
+<div class="flex justify-center text-9xl">
+  Hello {name}!
 </div>

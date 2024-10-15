@@ -1,45 +1,46 @@
-import globals from "globals";
-import pluginJs from "@eslint/js";
-import tseslint from "typescript-eslint";
-import sveltePlugin from "eslint-plugin-svelte";
-import svelteParser from "svelte-eslint-parser";
-import babelParser from '@babel/eslint-parser';
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+import sveltePlugin from 'eslint-plugin-svelte';
 
 export default [
-  { files: ["src/*.{js,mjs,cjs,ts}"] },
-  { ignores: ["dist", "node_modules"] },
-  { languageOptions: { globals: globals.browser } },
+  {
+    rules: {
+      'no-unused-vars': 'error',
+      'no-undef': 'error'
+    }
+  },
+
+  {
+    files: [
+      '*.{js,mjs}'
+    ]
+  },
+
+  {
+    // The default patterns are ['**/node_modules/', '.git/'].
+    ignores: [
+    ],
+  },
+
+  {
+    languageOptions: {
+      // An object specifying additional objects that should be added to the global scope during linting.
+      // globals: globals.browser,
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
+      // The type of JavaScript source code.
+      // 'module' for ECMAScript modules (ESM).
+      // default: 'module' for .js and .mjs files.
+      sourceType: 'module',
+      // The version of ECMAScript to support.
+      // May be any year (i.e., 2022) or version (i.e., 5).
+      ecmaVersion: 2021,
+    },
+  },
 
   pluginJs.configs.recommended,
 
-  ...tseslint.configs.recommended,
-
-  ...sveltePlugin.configs["flat/recommended"],
-
-  {
-    files: ["src/*.svelte"],
-    languageOptions: {
-      parser: svelteParser,
-      parserOptions: {
-        parser: {
-          ts: "@typescript-eslint/parser",
-        },
-        extraFileExtensions: [".svelte"],
-      },
-    }
-  },
-
-  {
-    files: ["src/*.js", "**/*.mjs"],
-    languageOptions: {
-      parser: babelParser,
-    }
-  },
-
-  {
-    rules: {
-        "no-unused-vars": "error",
-        "no-undef": "error"
-    }
-  },  
+  ...sveltePlugin.configs['flat/recommended'],
 ];
