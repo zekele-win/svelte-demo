@@ -19,6 +19,7 @@ export default [
   {
     // The default patterns are ['**/node_modules/', '.git/'].
     ignores: [
+      'dist'
     ],
   },
 
