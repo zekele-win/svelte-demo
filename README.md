@@ -1,2 +1,2 @@
 # svelt-demo
-A Svelte demo project focused on environment configuration.
+A svelte demo project focused on environment configuration.

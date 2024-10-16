@@ -1,7 +1,11 @@
 <script>
-  let name = "world";
+  import Router from "svelte-spa-router";
+  // import { push } from "svelte-spa-router";
+  import routes from "./routes";
+
+  // push("/");
 </script>
 
-<div class="flex justify-center text-9xl">
-  Hello {name}!
-</div>
+<Router {routes} />
+
+<div />

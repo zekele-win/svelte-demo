@@ -12,7 +12,7 @@ export default [
 
   {
     files: [
-      '*.{js,mjs}'
+      '*.{js,jsx,tsx}'
     ]
   },
 
@@ -30,6 +30,7 @@ export default [
       globals: {
         ...globals.browser,
         ...globals.node,
+        ...globals.es2022,
       },
       // The type of JavaScript source code.
       // 'module' for ECMAScript modules (ESM).
@@ -37,7 +38,7 @@ export default [
       sourceType: 'module',
       // The version of ECMAScript to support.
       // May be any year (i.e., 2022) or version (i.e., 5).
-      ecmaVersion: 2021,
+      ecmaVersion: 2022,
     },
   },
 
